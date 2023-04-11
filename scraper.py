@@ -31,7 +31,7 @@ for url in urls:
 
     # Extract additional information as needed, such as university name or program name
     university = 'DTU' if 'dtu' in url else 'SDU'
-    program = 'Diplomingeniør Bachelor' if 'dtu' in url else 'Bachelor'
+    program = 'Diplomingeniør' if 'dtu' in url else 'Bachelor'
 
     # Write the extracted grades to the CSV file
     for grade in grades:
