@@ -5,7 +5,7 @@ import os
 
 # urls to scrape from
 urls = ['https://www.dtu.dk/uddannelse/ansoegning-og-optagelse/diplomingenioer-bachelor-optagelse/adgangskvotienter?accordion=0',
-        'https://www.sdu.dk/da/uddannelse/bachelor/gennemsnit']
+        'https://www.sdu.dk/da/uddannelse/bachelor/gennemsnit', 'https://www.ug.dk/kot-tal']
 
 # specify the workign directory and the name of the CSV file to store the collected grades
 directory = r'C:\Users\olars\Documents\code_projects\WebScraper'
