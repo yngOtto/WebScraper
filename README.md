@@ -1,6 +1,6 @@
 # WebScraper
 
-This is a Python script that scrapes data on entrance grades from three different URLs using the `requests` and `beautifulsoup4` libraries. The script collects entrance grades for two programs from two universities, and writes the data to a CSV file.
+This repository contains a Python script that scrapes data on entrance grades from three different URLs using the `requests` and `beautifulsoup4` libraries. The script collects entrance grades for two programs from two universities, and writes the data to a CSV file.
 
 ## Installation and Usage
 
