@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 import os
+import traceback
 
 # urls to scrape from
 urls = ['https://www.dtu.dk/uddannelse/ansoegning-og-optagelse/diplomingenioer-bachelor-optagelse/adgangskvotienter?accordion=0',
@@ -23,19 +24,21 @@ with open(csv_file_path, 'w', newline='') as csv_file:
 
 # loop through the URLs and collect grades
 for url in urls:
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
+        try:
+            response = requests.get(url)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.content, 'html.parser')
 
-    # extract grades from specific HTML tags or attributes
-    grades = soup.find_all('span', {'class': 'grade'})
+            # extract grades from specific HTML tags or attributes
+            grades = soup.find_all('span', {'class': 'grade'})
 
-    # extract additional information as needed, such as university name or program name
-    university = 'DTU' if 'dtu' in url else 'SDU'
-    program = 'Diplomingeniør' if 'dtu' in url else 'Bachelor'
+            # extract additional information as needed, such as university name or program name
+            university = 'DTU' if 'dtu' in url else 'SDU'
+            program = 'Diplomingeniør' if 'dtu' in url else 'Bachelor'
 
-    # write the extracted grades to the CSV file
-    for grade in grades:
-        csv_writer.writerow([university, program, grade.text])
+            # write the extracted grades to the CSV file
+            for grade in grades:
+                csv_writer.writerow([university, program, grade.text])
 
 csv_file.close()
 print("Entrance grades have been collected and saved to 'entrance_grades.csv'")
