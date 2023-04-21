@@ -39,6 +39,12 @@ for url in urls:
             # write the extracted grades to the CSV file
             for grade in grades:
                 csv_writer.writerow([university, program, grade.text])
+                
+         except Exception as e:
+            error_msg = f"Error scraping URL: {url}\nError message: {str(e)}\nStack trace:\n{traceback.format_exc()}\n"
+            with open('error.log', 'a') as error_file:
+                error_file.write(error_msg)
+            print(error_msg)
 
 csv_file.close()
 print("Entrance grades have been collected and saved to 'entrance_grades.csv'")
