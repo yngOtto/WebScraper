@@ -6,7 +6,7 @@ import traceback
 
 # urls to scrape from
 urls = ['https://www.dtu.dk/uddannelse/ansoegning-og-optagelse/diplomingenioer-bachelor-optagelse/adgangskvotienter?accordion=0',
-        'https://www.sdu.dk/da/uddannelse/bachelor/gennemsnit', 'https://www.ug.dk/kot-tal']
+        'https://www.sdu.dk/da/uddannelse/bachelor/gennemsnit', 'https://www.ug.dk/kot-tal', ]
 
 # specify the workign directory and the name of the CSV file to store the collected grades
 directory = r'C:\Users\olars\Documents\code_projects\WebScraper'
@@ -20,7 +20,7 @@ os.makedirs(directory, exist_ok=True)
 with open(csv_file_path, 'w', newline='') as csv_file:
     csv_writer = csv.writer(csv_file)
     # Write header row
-    csv_writer.writerow(['University', 'Program', 'Entrance Grade'])
+    csv_writer.writerow(['Universitet', 'Studie', 'Snit Krav'])
 
 # loop through the URLs and collect grades
 for url in urls:
